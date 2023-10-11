@@ -11,6 +11,8 @@ const GeneradorDeCajas = () => {
     coloresTemporal.push({ color: nombreColor, width: ancho, height: alto });
     setColores(coloresTemporal);
     setNombreColor(""); // Limpia el campo de entrada de color
+    setAncho("");       // Limpia el campo de entrada de ancho
+    setAlto("");        // Limpia el campo de entrada de alto
   }
 
   const handleColorChange = (e) => {
@@ -20,7 +22,7 @@ const GeneradorDeCajas = () => {
   const handleAnchoChange = (e) => {
     setAncho(parseInt(e.target.value, 10));
   }
-
+  
   const handleAltoChange = (e) => {
     setAlto(parseInt(e.target.value, 10));
   }
