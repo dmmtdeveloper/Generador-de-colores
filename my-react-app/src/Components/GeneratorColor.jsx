@@ -1,30 +1,40 @@
 import { useState } from "react";
 
 const GeneradorDeCajas = () => {
-
-  const [colores, setColores] = useState(["red", "blue", "purple"]);
-  const [nombreColor, setNombreColor]= useState("");
-
+  const [colores, setColores] = useState([]);
+  const [nombreColor, setNombreColor] = useState("");
+  const [ancho, setAncho] = useState(); 
+  const [alto, setAlto] = useState();   
 
   const addColor = () => {
     const coloresTemporal = [...colores];
-    coloresTemporal.push(nombreColor);
-    setColores(coloresTemporal)
+    coloresTemporal.push({ color: nombreColor, width: ancho, height: alto });
+    setColores(coloresTemporal);
+    setNombreColor(""); // Limpia el campo de entrada de color
   }
-  
 
   const handleColorChange = (e) => {
     setNombreColor(e.target.value)
   }
 
+  const handleAnchoChange = (e) => {
+    setAncho(parseInt(e.target.value, 10));
+  }
+
+  const handleAltoChange = (e) => {
+    setAlto(parseInt(e.target.value, 10));
+  }
 
   const renderColores = () => {
     return colores.map((item, index) => (
-      <div key={index} style={{ 
-        width: "40px", 
-        height: "40px", 
-        background: item, 
-        margin: "10px" }}
+      <div
+        key={index}
+        style={{
+          width: `${item.width}px`,
+          height: `${item.height}px`,
+          background: item.color,
+          margin: "10px",
+        }}
       ></div>
     ));
   };
@@ -32,32 +42,38 @@ const GeneradorDeCajas = () => {
 
   return (
     <div className="colors-generator">
-
-      <div>
-          <input 
-            className="form-control mt-4" 
-            type="text" value={nombreColor} 
-            placeholder="Write a color in English"
-            onChange={handleColorChange} 
-          />
+      <div className="colors-control">
+        <input
+          className="form-control"
+          type="text"
+          value={nombreColor}
+          placeholder="Escribe un color en inglés"
+          onChange={handleColorChange}
+        />
+        <input
+          className="form-control"
+          type="number"
+          value={ancho}
+          placeholder="Ancho (px)"
+          onChange={handleAnchoChange}
+        />
+        <input
+          className="form-control"
+          type="number"
+          value={alto}
+          placeholder="Alto (px)"
+          onChange={handleAltoChange}
+        />
       </div>
 
-      <div>
-          <button 
-            className="btn btn-primary mt-2" 
-            onClick={addColor}>Add Color</button>
-      </div>
+        <button className="btn btn-primary mt-4" onClick={addColor}>Agregar Color</button>
 
       <div className="colors-render">
-        {
-          renderColores()
-        }
+        {renderColores()}
       </div>
-      
-      
     </div>
   );
-}
+};
  
 export default GeneradorDeCajas;
 
