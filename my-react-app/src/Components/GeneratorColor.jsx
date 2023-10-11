@@ -37,7 +37,7 @@ const GeneradorDeCajas = () => {
           <input 
             className="form-control mt-4" 
             type="text" value={nombreColor} 
-            placeholder="Insert color"
+            placeholder="Write a color in English"
             onChange={handleColorChange} 
           />
       </div>

@@ -5,7 +5,7 @@ import GeneradorDeCajas from './Components/GeneratorColor';
 function App() {
   return (
     <div className="App">
-      <h1>Generador de Colores</h1>
+      <h1>Color Generator</h1>
       <GeneradorDeCajas/>
     </div>
   );
