@@ -3,8 +3,8 @@ import { useState } from "react";
 const GeneradorDeCajas = () => {
   const [colores, setColores] = useState([]);
   const [nombreColor, setNombreColor] = useState("");
-  const [ancho, setAncho] = useState(); 
-  const [alto, setAlto] = useState();   
+  const [ancho, setAncho] = useState(""); 
+  const [alto, setAlto] = useState("");   
 
   const addColor = () => {
     const coloresTemporal = [...colores];
