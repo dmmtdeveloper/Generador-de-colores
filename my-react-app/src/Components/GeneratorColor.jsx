@@ -2,7 +2,7 @@ import { useState } from "react";
 
 const GeneradorDeCajas = () => {
 
-  const [colores, setColores] = useState([""]);
+  const [colores, setColores] = useState(["red", "blue", "purple"]);
   const [nombreColor, setNombreColor]= useState("");
 
 
