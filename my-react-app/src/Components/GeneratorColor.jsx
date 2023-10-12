@@ -19,12 +19,12 @@ const GeneradorDeCajas = () => {
     setNombreColor(e.target.value)
   }
 
-  const handleAnchoChange = (e) => {
-    setAncho(parseInt(e.target.value, 10));
+    const handleAnchoChange = (e) => {
+    setAncho(parseInt(e.target.value));
   }
   
   const handleAltoChange = (e) => {
-    setAlto(parseInt(e.target.value, 10));
+    setAlto(parseInt(e.target.value));
   }
 
   const renderColores = () => {
